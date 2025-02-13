@@ -1,20 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-Do List</title>
+    <title>Tarkov Gun Builds</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="libs/swiper-bundle.min.css">
+    <script defer src="libs/swiper-bundle.min.js"></script>
 </head>
-<body>
-    <div class="container">
-        <h1>To-Do List</h1>
-        <form id="task-form">
-            <input type="text" id="task-input" placeholder="Add a new task" required>
-            <button type="submit">Add Task</button>
-        </form>
-        <ul id="task-list"></ul>
+<body class="dark-mode">
+    <header>
+        <h1>Tarkov Gun Builds</h1>
+        <button id="mode-toggle">🌙 Tryb</button>
+        <button id="tactical-mode-toggle">🟢 Tactical Mode</button>
+    </header>
+
+    <div class="filter-container">
+        <button class="filter-btn" data-filter="all">Wszystkie</button>
+        <button class="filter-btn" data-filter="m4a1">M4A1</button>
+        <button class="filter-btn" data-filter="ak74">AK-74</button>
+        <button class="filter-btn" data-filter="sniper">Snajperki</button>
     </div>
-    <script src="app.js"></script>
+
+    <div class="gallery-container">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" data-category="m4a1"><img src="img/build1.jpg" alt="M4A1 Build"></div>
+                <div class="swiper-slide" data-category="ak74"><img src="img/build2.jpg" alt="AK-74 Build"></div>
+                <div class="swiper-slide" data-category="sniper"><img src="img/build3.jpg" alt="Sniper Build"></div>
+                <div class="swiper-slide" data-category="m4a1"><img src="img/build4.jpg" alt="M4A1 Build"></div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img id="modal-img" src="" alt="Build">
+            <h2 id="modal-title">Tytuł Builda</h2>
+            <p id="modal-desc">Opis builda</p>
+            <p id="view-count">Wyświetlono: 0 razy</p>
+
+            <!-- System oceniania -->
+            <div class="rating">
+                <span class="star" data-value="1">★</span>
+                <span class="star" data-value="2">★</span>
+                <span class="star" data-value="3">★</span>
+                <span class="star" data-value="4">★</span>
+                <span class="star" data-value="5">★</span>
+                <p id="rating-text">Brak ocen</p>
+            </div>
+
+            <!-- Sugestie -->
+            <h3>Zgłoś sugestię</h3>
+            <textarea id="suggestion-text" placeholder="Napisz swoją sugestię..."></textarea>
+            <button id="submit-suggestion">Wyślij</button>
+        </div>
+    </div>
 </body>
 </html>
